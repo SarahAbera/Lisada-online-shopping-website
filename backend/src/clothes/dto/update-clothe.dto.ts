@@ -1,5 +1,5 @@
 
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator"
+import { IsNotEmpty, IsNumber, IsOptional, isString, IsString } from "class-validator"
 
 
 
@@ -26,4 +26,13 @@ export class UpdateClothProfile {
     @IsNotEmpty()
 
     id: number
+}
+
+
+
+export class ProfileURL {
+    @IsString()
+    @IsNotEmpty()
+
+    profile_url:string    
 }

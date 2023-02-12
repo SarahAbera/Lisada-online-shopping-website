@@ -48,7 +48,8 @@ let AuthService = class AuthService {
         if (!isPasswordValid) {
             throw new common_1.HttpException('No user found', common_1.HttpStatus.NOT_FOUND);
         }
-        return this.helper.generateToken(user);
+        let tokens = this.helper.generateToken(user);
+        return { succes: true, token: tokens };
     }
 };
 __decorate([

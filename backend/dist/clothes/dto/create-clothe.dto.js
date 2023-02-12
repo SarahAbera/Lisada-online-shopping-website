@@ -35,7 +35,7 @@ __decorate([
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", Number)
-], CreateClothDto.prototype, "profile_id", void 0);
+    __metadata("design:type", String)
+], CreateClothDto.prototype, "profile_url", void 0);
 exports.CreateClothDto = CreateClothDto;
 //# sourceMappingURL=create-clothe.dto.js.map

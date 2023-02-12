@@ -21,7 +21,7 @@ export class CreateClothDto {
     @IsString()
     @IsOptional()
 
-    profile_id: number
+    profile_url: string
 
 
 }

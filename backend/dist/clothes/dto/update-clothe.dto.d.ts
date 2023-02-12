@@ -5,3 +5,6 @@ export declare class UpdateClothDto {
 export declare class UpdateClothProfile {
     id: number;
 }
+export declare class ProfileURL {
+    profile_url: string;
+}

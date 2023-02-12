@@ -23,6 +23,7 @@ const role_enum_1 = require("../RBAC/role.enum");
 const platform_express_1 = require("@nestjs/platform-express");
 const multer_1 = require("multer");
 const path_1 = require("path");
+const rxjs_1 = require("rxjs");
 let ClothesController = class ClothesController {
     constructor(clothesService) {
         this.clothesService = clothesService;
@@ -43,7 +44,17 @@ let ClothesController = class ClothesController {
         return this.clothesService.DeleteCloth(+id);
     }
     async AddProfile(file) {
-        return file.filename;
+        return { uploaded: true, path: file.filename };
+    }
+    Download(response) {
+        response.contentType("jpg");
+        try {
+            const file = (0, path_1.join)(process.cwd(), "./uploads/lisada-1676224300687-378351015.jpg");
+            return (0, rxjs_1.of)(response.sendFile(file));
+        }
+        catch (error) {
+            throw new common_1.HttpException("profile not found, check your path", common_1.HttpStatus.NOT_FOUND);
+        }
     }
 };
 __decorate([
@@ -94,28 +105,43 @@ __decorate([
 __decorate([
     (0, common_1.UseGuards)((0, roles_guard_1.default)(role_enum_1.Role.Admin)),
     (0, common_1.UseGuards)(Auth_guard_1.JwtAuthGuard),
-    (0, common_1.Post)('/profile'),
+    (0, common_1.Post)('/profile/upload'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
+        fileFilter: (req, file, cb) => {
+            if (file.originalname.match(/^.*\.(jpg|webp|png|jpeg|JPG|PNG|JPEG|WEBP)$/))
+                cb(null, true);
+            else {
+                cb(new multer_1.MulterError('LIMIT_UNEXPECTED_FILE', 'image'), false);
+            }
+        },
         storage: (0, multer_1.diskStorage)({
-            destination: 'uploads',
+            destination: './uploads',
             filename: (req, file, callback) => {
                 const uniqueSufix = Date.now() + "-" + Math.round(Math.random() * 1e9);
                 const ext = (0, path_1.extname)(file.originalname);
-                const fileOrgName = file.originalname;
-                const fileName = `${fileOrgName.split(".", 1)}-${uniqueSufix}${ext}`;
+                const fileNameor = "lisada";
+                const fileName = `${fileNameor}-${uniqueSufix}${ext}`;
                 callback(null, fileName);
             }
         })
     })),
     __param(0, (0, common_1.UploadedFile)(new common_1.ParseFilePipe({
         validators: [
-            new common_1.FileTypeValidator({ fileType: 'image/jpeg' }),
+            new common_1.FileTypeValidator({ fileType: /(jpg|jpeg|png|gif)$/ }),
         ],
     }))),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], ClothesController.prototype, "AddProfile", null);
+__decorate([
+    (0, common_1.Get)('profile/download'),
+    (0, common_1.HttpCode)(200),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", rxjs_1.Observable)
+], ClothesController.prototype, "Download", null);
 ClothesController = __decorate([
     (0, common_1.Controller)('clothes'),
     __metadata("design:paramtypes", [clothes_service_1.ClothesService])

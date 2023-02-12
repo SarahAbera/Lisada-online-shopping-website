@@ -4,5 +4,5 @@ export declare class AuthService {
     private readonly repository;
     private readonly helper;
     register(body: CreateUserDto): Promise<User | never>;
-    login(body: LoginDto): Promise<string | never>;
+    login(body: LoginDto): Promise<any | never>;
 }

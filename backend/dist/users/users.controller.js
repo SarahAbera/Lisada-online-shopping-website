@@ -50,9 +50,9 @@ __decorate([
 ], UsersController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, common_1.UseGuards)((0, roles_guard_1.default)(role_enum_1.Role.Admin)),
+    (0, common_1.UseGuards)((0, roles_guard_1.default)(role_enum_1.Role.User)),
     (0, common_1.UseGuards)(Auth_guard_1.JwtAuthGuard),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)

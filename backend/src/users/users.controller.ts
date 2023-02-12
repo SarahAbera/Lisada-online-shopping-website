@@ -1,7 +1,7 @@
 
 
 
-import { Get, Body, Param, Delete, Put, UseGuards, Req, Inject, Controller } from '@nestjs/common';
+import { Get, Body, Param, Delete, Put, UseGuards, Req, Inject, Controller, HttpException, HttpStatus, ParseIntPipe } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 
@@ -15,10 +15,6 @@ import { JwtAuthGuard } from 'src/auth/Auth.guard';
 
 import { Role } from 'src/RBAC/role.enum';
 import RolesGuard from 'src/RBAC/roles.guard';
-
-
-
-
 
 
 
@@ -38,11 +34,19 @@ export class UsersController {
   }
 
   @Get(':id')
-  @UseGuards(RolesGuard(Role.Admin))
+  @UseGuards(RolesGuard(Role.User))
   @UseGuards(JwtAuthGuard)
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id',ParseIntPipe) id: string) {
     return this.usersService.getFilteredRepsonseUser(+id);
   }
+
+
+
+  
+
+  
+
+
 
 
   @Delete("delete")

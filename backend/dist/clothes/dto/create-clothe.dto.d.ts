@@ -3,5 +3,5 @@ export declare class CreateClothDto {
     description: string;
     price: number;
     origin: string;
-    profile_id: number;
+    profile_url: string;
 }

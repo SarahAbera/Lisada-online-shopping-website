@@ -10,6 +10,7 @@ import { UsersModule } from './users/users.module';
 import { ClothesModule } from './clothes/clothes.module';
 import { AuthModule } from './auth/auth.module';
 import { MulterModule } from '@nestjs/platform-express';
+import { OrdersModule } from './orders/orders.module';
 
 
 
@@ -35,7 +36,9 @@ import { MulterModule } from '@nestjs/platform-express';
     ,
     UsersModule,
     ClothesModule,
-    AuthModule,
+    AuthModule, 
+    OrdersModule
+
 
   ],
   controllers: [AppController],

@@ -50,3 +50,6 @@ export class Cloth {
     })
     profile_url: string
 }
+
+
+

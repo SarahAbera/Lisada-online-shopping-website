@@ -52,13 +52,13 @@ export class AuthService {
     users.id = newUser.id;
 
     users.username = newUser.username;
-    
+
     return users;
 
 
   }
 
-  public async login(body: LoginDto): Promise<string | never> {
+  public async login(body: LoginDto): Promise<any | never> {
     const { email, password }: LoginDto = body;
     const user: User = await this.repository.findOne({ where: { email } });
 
@@ -72,9 +72,9 @@ export class AuthService {
       throw new HttpException('No user found', HttpStatus.NOT_FOUND);
     }
 
+    let tokens = this.helper.generateToken(user);
 
-
-    return this.helper.generateToken(user);
+    return { succes: true, token: tokens };
   }
 
 

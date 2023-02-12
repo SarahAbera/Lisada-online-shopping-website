@@ -17,6 +17,7 @@ const users_module_1 = require("./users/users.module");
 const clothes_module_1 = require("./clothes/clothes.module");
 const auth_module_1 = require("./auth/auth.module");
 const platform_express_1 = require("@nestjs/platform-express");
+const orders_module_1 = require("./orders/orders.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -41,6 +42,7 @@ AppModule = __decorate([
             users_module_1.UsersModule,
             clothes_module_1.ClothesModule,
             auth_module_1.AuthModule,
+            orders_module_1.OrdersModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService,

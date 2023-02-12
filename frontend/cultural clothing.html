@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural clothing</title>
+    <link rel="icon" type="image/X-icon" href="Photos/favicon.io.png">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="addtocart.css">
+    <style>
+        section img{
+            width: 100%;
+            height: 350px;
+        }
+        .clothing-section {
+            background-color: rgb(229, 229, 235);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="login-btn d-flex flex-row-reverse bd-highlight" style="background-color: #FFC090;">
+            <a href="Login.html"><button class="button px-3 bd-highlight fs-5" style="background-color: #E38B29;">Login</button></a>
+        </div>
+        <div style="background-color: #e38b29;">
+            <nav class="navbar navbar-expand-lg bg-transparent" >
+                <div class="container">
+                    <a class="navbar-brand mx-3" href="#">
+                        <img src="./Photos//favicon.io.png" alt="Brand_Logo" width="80" height="80">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                        <span class="navbar-toggler-icon" style="background-color: rgb(0, 0, 0); color: aliceblue;" >=</span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center fs-5" id="navmenu" >
+                        <ul class="navbar-nav ">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown" >
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" >
+                                    Women clothings
+                                </a>
+                                <ul class="dropdown-menu" >
+                                    <li><a class="dropdown-item text-dark" href="Casual clothing.html">Casual/Normal</a></li>
+                                    <li><a class="dropdown-item text-dark" href="cultural clothing.html">Cultural</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link text-dark" href="Contact us.html">Contact us</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" href="About us.html">About us</a></li>
+                                                       
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    </header>
+    <div >
+        <h2 class="m-4">Women Cultural Clothes</h2>
+        <p class="mx-4 fs-4">Every available Ethiopian Culture Clothes</p>
+    </div>
+
+    <div class="container" style="overflow-x: scroll;">
+        <table class="table table-bordered">
+            <tr>
+                <td>Ethiopian nations</td>
+                <td>Tigrai</td>
+                <td>Amhara</td>
+                <td>Somalia</td>
+                <td>Afar</td>
+                <td>Southern nation</td>
+                <td>Gambela</td>
+                <td>Benshangul</td>
+                <td>Oromo</td>
+                <td>Harari</td>
+            </tr>
+            <tr>
+                <td>quantity of available clothes</td>
+                <td>10</td>
+                <td>9</td>
+                <td>12</td>
+                <td>11</td>
+                <td>14</td>
+                <td>6</td>
+                <td>7</td>
+                <td>13</td>
+                <td>8</td>
+            </tr>
+            <tr >
+                <td>links that scrolls down to clothes that you want</td>
+                <td><a class="text-decoration-none" href="#T">Tigrain clothes</a></td>
+                <td><a class="text-decoration-none" href="#A">Amhara clothes</a></td>
+                <td><a class="text-decoration-none" href="#S">Somalian clothes</a></td>
+                <td><a class="text-decoration-none" href="#Af">Afar's clothes</a></td>
+                <td><a class="text-decoration-none" href="#So">Debub ethiopian clothes</a></td>
+                <td><a class="text-decoration-none" href="#G">Gambela's clothes</a></td>
+                <td><a class="text-decoration-none" href="#B">Benshangul's clothes</a></td>
+                <td><a class="text-decoration-none" href="#O">Oromian clothes</a></td>
+                <td><a class="text-decoration-none" href="#H">Harari clothes</a></td>
+            </tr>
+        </table>
+    </div>
+        <div class="container">
+            <div id="root"></div>
+            <div class="sidebar">
+                <div class="head"><p>My Cart</p></div>
+                <div id="cartItem">Your cart is empty</div>
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">$ 0.00</h2>
+                </div>
+                <button 
+                onclick="return purchase()">Purchase</button>
+            </div>
+                </div>
+        <script src="addtocart_c.js"></script>
+        <script src="bootstrap.min.js"></script>
+    </body>
+</html>

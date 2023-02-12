@@ -1,0 +1,41 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+header {
+    height: 550px;
+    width: 100%;
+    background-size: cover;
+    background-image:url("Photos/lisada.jpeg");
+}
+/* .navbar-light .navbar-nav .nav-link{
+    color: black;
+    font-size: 26px;
+} */
+.text-col{
+    color: brown;
+}
+.navbar-light .navbar-brand{
+    color: black;
+    font-size: 30px;
+}
+.login-btn {
+    width: 100%;
+    background-color: #FFC090;
+  }
+  .login-btn a button {
+    background-color: #E38B29;
+    border-color: #E38B29;
+  }
+  .row{
+    background-color:#FFe5c4;
+  }
+.img-size{
+    width: 100%;
+    height: 650px;
+}
+/* .container-fluid img {
+    height: 650px;
+    
+} */
+

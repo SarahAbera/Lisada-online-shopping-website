@@ -13,6 +13,12 @@ export class OrdersService {
     @InjectRepository(Orders)
     private readonly orderRepository: Repository<Orders>;
 
+    createOrder(createOrderDto:CreateOrderDto){
+        return this.orderRepository.save(createOrderDto);
+    }
+
+
+
     getallOrder() {
         return this.orderRepository.find();
 
@@ -21,5 +27,10 @@ export class OrdersService {
 
     getOrders(createorderDto:CreateOrderDto){
         return this.orderRepository.save(createorderDto);
+    }
+
+
+    getorderbyUserId(id:number){
+        return this.orderRepository.findOneBy({id});
     }
 }

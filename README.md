@@ -1,4 +1,4 @@
-# NestJs-group-assignment
+# Online shopping web app for class project
 Project Title: Lisada online shopping website
 
 Group members:
